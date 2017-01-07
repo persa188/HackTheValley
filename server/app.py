@@ -69,7 +69,7 @@ class User(db.Model):
 
 class Event(db.Model):
     __tablename__ = 'events'
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     eventname = db.Column(db.String(64), index=True)
     description = db.Column(db.String(64))
 
@@ -110,6 +110,9 @@ def get_user(id):
         abort(400)
     return jsonify({'username': user.username})
 
+@app.route('/')
+def defa():
+    return "hi"
 
 @app.route('/api/token')
 @auth.login_required
@@ -118,12 +121,15 @@ def get_auth_token():
     return jsonify({'token': token.decode('ascii'), 'duration': 600})
 
 
-@app.route('/api/events')
+@app.route('/api/addevent', methods = ['POST'])
 @auth.login_required
-def get_event():
-    #TODO: IMPLEMENT
-    return jsonify({'data': 'Hello, %s!' % g.user.username})
-
+def add_event():
+    eventname= request.json.get('eventname')
+    description= request.json.get('description')
+    event = Event(description=description, eventname=eventname)
+    db.session.add(event)
+    db.session.commit()
+    return jsonify({"OK"})
 
 
 if __name__ == '__main__':
