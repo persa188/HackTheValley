@@ -1,0 +1,568 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		14C79BB919B408744DEE0C88 /* Pods_HackTheValleyiOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0E14A185A1E41D67DDA1E1F /* Pods_HackTheValleyiOSTests.framework */; };
+		42560B792C11CA27C5DC80F1 /* Pods_HackTheValleyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71B7ECE346FB90E8F736F445 /* Pods_HackTheValleyiOS.framework */; };
+		CA3B1EA91E218BDC000DA172 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3B1EA81E218BDC000DA172 /* AppDelegate.swift */; };
+		CA3B1EAB1E218BDC000DA172 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3B1EAA1E218BDC000DA172 /* FirstViewController.swift */; };
+		CA3B1EAD1E218BDC000DA172 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3B1EAC1E218BDC000DA172 /* SecondViewController.swift */; };
+		CA3B1EB01E218BDC000DA172 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA3B1EAE1E218BDC000DA172 /* Main.storyboard */; };
+		CA3B1EB21E218BDC000DA172 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA3B1EB11E218BDC000DA172 /* Assets.xcassets */; };
+		CA3B1EB51E218BDC000DA172 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA3B1EB31E218BDC000DA172 /* LaunchScreen.storyboard */; };
+		CA3B1EC01E218BDC000DA172 /* HackTheValleyiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3B1EBF1E218BDC000DA172 /* HackTheValleyiOSTests.swift */; };
+		CA3B1ECB1E218D72000DA172 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3B1ECA1E218D72000DA172 /* DetailViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CA3B1EBC1E218BDC000DA172 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA3B1E9D1E218BDC000DA172 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA3B1EA41E218BDC000DA172;
+			remoteInfo = HackTheValleyiOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		38F838EBDD7C10D6FDC486C2 /* Pods-HackTheValleyiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackTheValleyiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackTheValleyiOS/Pods-HackTheValleyiOS.debug.xcconfig"; sourceTree = "<group>"; };
+		47E820C8C7DAA3ED35BD1F5B /* Pods-HackTheValleyiOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackTheValleyiOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackTheValleyiOSTests/Pods-HackTheValleyiOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		71B7ECE346FB90E8F736F445 /* Pods_HackTheValleyiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackTheValleyiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		781190346F5F87F30EBBC526 /* Pods-HackTheValleyiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackTheValleyiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackTheValleyiOS/Pods-HackTheValleyiOS.release.xcconfig"; sourceTree = "<group>"; };
+		CA3B1EA51E218BDC000DA172 /* HackTheValleyiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackTheValleyiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA3B1EA81E218BDC000DA172 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CA3B1EAA1E218BDC000DA172 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		CA3B1EAC1E218BDC000DA172 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		CA3B1EAF1E218BDC000DA172 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CA3B1EB11E218BDC000DA172 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CA3B1EB41E218BDC000DA172 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CA3B1EB61E218BDC000DA172 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA3B1EBB1E218BDC000DA172 /* HackTheValleyiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackTheValleyiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA3B1EBF1E218BDC000DA172 /* HackTheValleyiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackTheValleyiOSTests.swift; sourceTree = "<group>"; };
+		CA3B1EC11E218BDC000DA172 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA3B1ECA1E218D72000DA172 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		DB2935D0CA0297A1145F3E04 /* Pods-HackTheValleyiOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackTheValleyiOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackTheValleyiOSTests/Pods-HackTheValleyiOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		E0E14A185A1E41D67DDA1E1F /* Pods_HackTheValleyiOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackTheValleyiOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CA3B1EA21E218BDC000DA172 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42560B792C11CA27C5DC80F1 /* Pods_HackTheValleyiOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA3B1EB81E218BDC000DA172 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14C79BB919B408744DEE0C88 /* Pods_HackTheValleyiOSTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6B69AB4F4609A7C389930F3D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				71B7ECE346FB90E8F736F445 /* Pods_HackTheValleyiOS.framework */,
+				E0E14A185A1E41D67DDA1E1F /* Pods_HackTheValleyiOSTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CA3B1E9C1E218BDC000DA172 = {
+			isa = PBXGroup;
+			children = (
+				CA3B1EA71E218BDC000DA172 /* HackTheValleyiOS */,
+				CA3B1EBE1E218BDC000DA172 /* HackTheValleyiOSTests */,
+				CA3B1EA61E218BDC000DA172 /* Products */,
+				FA28910E8C0DD40286B53EEE /* Pods */,
+				6B69AB4F4609A7C389930F3D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		CA3B1EA61E218BDC000DA172 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CA3B1EA51E218BDC000DA172 /* HackTheValleyiOS.app */,
+				CA3B1EBB1E218BDC000DA172 /* HackTheValleyiOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CA3B1EA71E218BDC000DA172 /* HackTheValleyiOS */ = {
+			isa = PBXGroup;
+			children = (
+				CA3B1EA81E218BDC000DA172 /* AppDelegate.swift */,
+				CA3B1EAA1E218BDC000DA172 /* FirstViewController.swift */,
+				CA3B1EAC1E218BDC000DA172 /* SecondViewController.swift */,
+				CA3B1ECA1E218D72000DA172 /* DetailViewController.swift */,
+				CA3B1EAE1E218BDC000DA172 /* Main.storyboard */,
+				CA3B1EB11E218BDC000DA172 /* Assets.xcassets */,
+				CA3B1EB31E218BDC000DA172 /* LaunchScreen.storyboard */,
+				CA3B1EB61E218BDC000DA172 /* Info.plist */,
+			);
+			path = HackTheValleyiOS;
+			sourceTree = "<group>";
+		};
+		CA3B1EBE1E218BDC000DA172 /* HackTheValleyiOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				CA3B1EBF1E218BDC000DA172 /* HackTheValleyiOSTests.swift */,
+				CA3B1EC11E218BDC000DA172 /* Info.plist */,
+			);
+			path = HackTheValleyiOSTests;
+			sourceTree = "<group>";
+		};
+		FA28910E8C0DD40286B53EEE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				38F838EBDD7C10D6FDC486C2 /* Pods-HackTheValleyiOS.debug.xcconfig */,
+				781190346F5F87F30EBBC526 /* Pods-HackTheValleyiOS.release.xcconfig */,
+				47E820C8C7DAA3ED35BD1F5B /* Pods-HackTheValleyiOSTests.debug.xcconfig */,
+				DB2935D0CA0297A1145F3E04 /* Pods-HackTheValleyiOSTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CA3B1EA41E218BDC000DA172 /* HackTheValleyiOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA3B1EC41E218BDC000DA172 /* Build configuration list for PBXNativeTarget "HackTheValleyiOS" */;
+			buildPhases = (
+				E58FA8E521F21E770CB2ADD9 /* [CP] Check Pods Manifest.lock */,
+				CA3B1EA11E218BDC000DA172 /* Sources */,
+				CA3B1EA21E218BDC000DA172 /* Frameworks */,
+				CA3B1EA31E218BDC000DA172 /* Resources */,
+				A55DE3DB79822D2EDEB1F331 /* [CP] Embed Pods Frameworks */,
+				208823D47797991EAF507893 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HackTheValleyiOS;
+			productName = HackTheValleyiOS;
+			productReference = CA3B1EA51E218BDC000DA172 /* HackTheValleyiOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CA3B1EBA1E218BDC000DA172 /* HackTheValleyiOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA3B1EC71E218BDC000DA172 /* Build configuration list for PBXNativeTarget "HackTheValleyiOSTests" */;
+			buildPhases = (
+				6FB68CF73D09401F98518E1A /* [CP] Check Pods Manifest.lock */,
+				CA3B1EB71E218BDC000DA172 /* Sources */,
+				CA3B1EB81E218BDC000DA172 /* Frameworks */,
+				CA3B1EB91E218BDC000DA172 /* Resources */,
+				0EB4B1E0FC49B09819DBEBC1 /* [CP] Embed Pods Frameworks */,
+				36FF5B2EF81D67F34A7B7442 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CA3B1EBD1E218BDC000DA172 /* PBXTargetDependency */,
+			);
+			name = HackTheValleyiOSTests;
+			productName = HackTheValleyiOSTests;
+			productReference = CA3B1EBB1E218BDC000DA172 /* HackTheValleyiOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CA3B1E9D1E218BDC000DA172 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Brandon Mowat";
+				TargetAttributes = {
+					CA3B1EA41E218BDC000DA172 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 2HNPL835B5;
+						ProvisioningStyle = Automatic;
+					};
+					CA3B1EBA1E218BDC000DA172 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 2HNPL835B5;
+						ProvisioningStyle = Automatic;
+						TestTargetID = CA3B1EA41E218BDC000DA172;
+					};
+				};
+			};
+			buildConfigurationList = CA3B1EA01E218BDC000DA172 /* Build configuration list for PBXProject "HackTheValleyiOS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CA3B1E9C1E218BDC000DA172;
+			productRefGroup = CA3B1EA61E218BDC000DA172 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CA3B1EA41E218BDC000DA172 /* HackTheValleyiOS */,
+				CA3B1EBA1E218BDC000DA172 /* HackTheValleyiOSTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CA3B1EA31E218BDC000DA172 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA3B1EB51E218BDC000DA172 /* LaunchScreen.storyboard in Resources */,
+				CA3B1EB21E218BDC000DA172 /* Assets.xcassets in Resources */,
+				CA3B1EB01E218BDC000DA172 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA3B1EB91E218BDC000DA172 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0EB4B1E0FC49B09819DBEBC1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackTheValleyiOSTests/Pods-HackTheValleyiOSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		208823D47797991EAF507893 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackTheValleyiOS/Pods-HackTheValleyiOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		36FF5B2EF81D67F34A7B7442 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackTheValleyiOSTests/Pods-HackTheValleyiOSTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6FB68CF73D09401F98518E1A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A55DE3DB79822D2EDEB1F331 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackTheValleyiOS/Pods-HackTheValleyiOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E58FA8E521F21E770CB2ADD9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CA3B1EA11E218BDC000DA172 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA3B1EAD1E218BDC000DA172 /* SecondViewController.swift in Sources */,
+				CA3B1EA91E218BDC000DA172 /* AppDelegate.swift in Sources */,
+				CA3B1EAB1E218BDC000DA172 /* FirstViewController.swift in Sources */,
+				CA3B1ECB1E218D72000DA172 /* DetailViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA3B1EB71E218BDC000DA172 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA3B1EC01E218BDC000DA172 /* HackTheValleyiOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CA3B1EBD1E218BDC000DA172 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA3B1EA41E218BDC000DA172 /* HackTheValleyiOS */;
+			targetProxy = CA3B1EBC1E218BDC000DA172 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CA3B1EAE1E218BDC000DA172 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA3B1EAF1E218BDC000DA172 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CA3B1EB31E218BDC000DA172 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA3B1EB41E218BDC000DA172 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CA3B1EC21E218BDC000DA172 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CA3B1EC31E218BDC000DA172 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CA3B1EC51E218BDC000DA172 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38F838EBDD7C10D6FDC486C2 /* Pods-HackTheValleyiOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2HNPL835B5;
+				INFOPLIST_FILE = HackTheValleyiOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = brandonmowat.HackTheValleyiOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		CA3B1EC61E218BDC000DA172 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 781190346F5F87F30EBBC526 /* Pods-HackTheValleyiOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2HNPL835B5;
+				INFOPLIST_FILE = HackTheValleyiOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = brandonmowat.HackTheValleyiOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		CA3B1EC81E218BDC000DA172 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47E820C8C7DAA3ED35BD1F5B /* Pods-HackTheValleyiOSTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 2HNPL835B5;
+				INFOPLIST_FILE = HackTheValleyiOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = brandonmowat.HackTheValleyiOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HackTheValleyiOS.app/HackTheValleyiOS";
+			};
+			name = Debug;
+		};
+		CA3B1EC91E218BDC000DA172 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB2935D0CA0297A1145F3E04 /* Pods-HackTheValleyiOSTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 2HNPL835B5;
+				INFOPLIST_FILE = HackTheValleyiOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = brandonmowat.HackTheValleyiOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HackTheValleyiOS.app/HackTheValleyiOS";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CA3B1EA01E218BDC000DA172 /* Build configuration list for PBXProject "HackTheValleyiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA3B1EC21E218BDC000DA172 /* Debug */,
+				CA3B1EC31E218BDC000DA172 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA3B1EC41E218BDC000DA172 /* Build configuration list for PBXNativeTarget "HackTheValleyiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA3B1EC51E218BDC000DA172 /* Debug */,
+				CA3B1EC61E218BDC000DA172 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CA3B1EC71E218BDC000DA172 /* Build configuration list for PBXNativeTarget "HackTheValleyiOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA3B1EC81E218BDC000DA172 /* Debug */,
+				CA3B1EC91E218BDC000DA172 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CA3B1E9D1E218BDC000DA172 /* Project object */;
+}
