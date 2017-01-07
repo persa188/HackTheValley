@@ -1,3 +1,0 @@
-rootProject.name = 'hackathonClient'
-
-include ':app'
