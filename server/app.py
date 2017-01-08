@@ -152,7 +152,7 @@ def add_event():
     starttime=request.json.get("starttime")
     endtime=request.json.get("endtime")
     options=request.json.get("options")
-    phot=request.json.get("photo")
+    photo=request.json.get("photo")
 
     if (eventname is None or description is None or starttime is None
         or endtime is None or options is None):
