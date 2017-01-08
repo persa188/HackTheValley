@@ -116,6 +116,10 @@ def new_user():
     user.hash_password(password)
     db.session.add(user)
     db.session.commit()
+    #create a matching profile
+    profile = Profile(userid=user.id)
+    db.session.add(profile)
+    db.session.commit()
     return (jsonify({'username': user.username}), 201,
             {'Location': url_for('get_user', id=user.id, _external=True)})
 
@@ -225,13 +229,13 @@ def create_options(value, eventid):
 def set_metadata():
     #get user
     userid = request.json.get('userid')
-    user = Profile.query.get(userid)
-    if (user is None):
+    profile = Profile.query.get(userid)
+    if (profile is None):
         abort(400)
     #get params
     meta = str(request.json.get('meta'))
     #update info
-    user.meta = meta
+    profile.meta = meta
     #db.session.update(user)
     db.session.commit()
     return jsonify({"status": 200, "response": "Metadata updated successfully"})
@@ -241,11 +245,40 @@ def set_metadata():
 def get_metadata():
     #get user
     userid = request.args['id']
-    user = Profile.query.filter_by(userid=userid).first()
-    if (user is None):
+    profile = Profile.query.filter_by(userid=userid).first()
+    if (profile is None):
         abort(400)
     #return info
-    return jsonify({"meta": user.meta})
+    return jsonify({"meta": profile.meta})
+
+
+@app.route('/api/user/editprofile', methods = ['PUT'])
+def edit_profile():
+    #get user
+    userid = request.json.get('userid')
+    profile = Profile.query.get(userid)
+    if (profile is None):
+        abort(400)
+    #get params
+    meta = str(request.json.get('meta'))
+    #update info
+    profile.address = request.json.get('address', profile.address)
+    profile.age = request.json.get('age', profile.age)
+    profile.meta = str(request.json.get('meta', profile.meta))
+    #db.session.update(user)
+    db.session.commit()
+    return jsonify({"status": 200, "response": "Profile updated successfully"})
+
+
+@app.route('/api/user/getprofile', methods = ['GET'])
+def get_profile():
+    #get user
+    userid = request.args['id']
+    profile = Profile.query.filter_by(userid=userid).first()
+    if (profile is None):
+        abort(400)
+    #return info
+    return jsonify({userid: profile})
 
 
 if __name__ == '__main__':
