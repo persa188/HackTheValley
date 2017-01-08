@@ -13,7 +13,7 @@ class Vote {
     
     init() {}
     
-    func vote(username: String, eventid: String, option: Int, completion: @escaping (_ json: NSDictionary) -> Void) {
+    func vote(username: String, eventid: String, option: Int, completion: @escaping (_ success:Bool) -> Void) {
         let parameters: Parameters = ["eventid": eventid, "username": username, "optionid": option]
         Alamofire.request("http://server.sanic.ca:8989/api/vote/", method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { response in
@@ -29,8 +29,8 @@ class Vote {
                 }
                 //to get JSON return value
                 if let result = response.result.value {
-                    let JSON = result as! NSDictionary
-                    completion(JSON)
+                    //let JSON = result as! NSDictionary
+                    completion(response.response?.statusCode == 200)
                 }
                 
         }

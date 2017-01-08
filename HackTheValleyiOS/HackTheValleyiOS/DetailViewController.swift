@@ -50,7 +50,15 @@ class DetailViewController: UIViewController {
         let username = defaults.object(forKey: "username")
         vote.getVoteOptions(eventid: String(describing: self.eventID!), completion: {(options: Array<Any>) -> Void in
             print((((options[0] as! NSArray)[option]) as! NSDictionary)["optionid"] ?? "")
-            vote.vote(username: username as! String, eventid: String(describing: self.eventID!), option: ((((options[0] as! NSArray)[option]) as! NSDictionary)["optionid"])! as! Int, completion: {_ in })
+            vote.vote(username: username as! String, eventid: String(describing: self.eventID!), option: ((((options[0] as! NSArray)[option]) as! NSDictionary)["optionid"])! as! Int, completion: {(success: Bool) in
+                if success {
+                    let vc = (
+                        self.storyboard?.instantiateViewController(
+                            withIdentifier: "ModalViewController")
+                        )!
+                    self.present(vc, animated: true, completion: nil)
+                }
+            })
         })
         
     
