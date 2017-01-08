@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HackTheValleyiOS/DetailViewController.swift"
-            timestampString = "505586311.39602"
+            timestampString = "505586846.794799"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "castVote(option:)"
             landmarkType = "7">
          </BreakpointContent>

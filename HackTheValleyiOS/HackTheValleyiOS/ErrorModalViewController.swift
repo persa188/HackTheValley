@@ -1,5 +1,5 @@
 //
-//  ModalViewController.swift
+//  ErrorModalViewController.swift
 //  HackTheValleyiOS
 //
 //  Created by Brandon Mowat on 2017-01-08.
@@ -8,9 +8,12 @@
 
 import UIKit
 
-class ModalViewController: UIViewController {
+class ErrorModalViewController: UIViewController {
 
+    @IBAction func close(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
 
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

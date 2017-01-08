@@ -57,6 +57,12 @@ class DetailViewController: UIViewController {
                             withIdentifier: "ModalViewController")
                         )!
                     self.present(vc, animated: true, completion: nil)
+                } else {
+                    let vc = (
+                        self.storyboard?.instantiateViewController(
+                            withIdentifier: "ErrorModalViewController")
+                        )!
+                    self.present(vc, animated: true, completion: nil)
                 }
             })
         })
