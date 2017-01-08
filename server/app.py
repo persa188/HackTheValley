@@ -234,7 +234,7 @@ def get_events():
     res = []
     events = Event.query.all()
     for e in events:
-        res.append({"eventid": e.id, "eventname":e.eventname, "description": e.description})
+        res.append({"eventid": str(e.id), "eventname": str(e.eventname), "description": str(e.description)})
     return jsonify({"events": res})
 
 @app.route('/api/event', methods=['GET'])
@@ -297,6 +297,20 @@ def get_profile():
         abort(400)
     #return info
     return jsonify({"status": 200, userid:{"address":profile.address, "age":profile.eventname, "description":profile.description}})
+
+@app.route('/api/checkifvoted', methods = ['GET'])
+def checkifvoted():
+    username = request.args['username']
+    eventid = request.args['eventid']
+
+    if username is None or eventid is None:
+        abort(400)
+
+    try:
+        vote = Vote.query.filter_by(username=username, eventid=eventid).first()
+        return jsonify(status=200, optionid=vote.optionid, resp="did vote")
+    except:
+        return jsonify(status=200, optionid=-1, resp="did not vote")
 
 
 @app.route('/api/user/geteventstat', methods = ['GET'])
