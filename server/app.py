@@ -71,7 +71,7 @@ class Event(db.Model):
     __tablename__ = 'events'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     eventname = db.Column(db.String(64), index=True)
-    startime= db.Column(db.Integer)
+    starttime= db.Column(db.Integer)
     endtime = db.Column(db.Integer)
     description = db.Column(db.String(64))
 
@@ -140,7 +140,7 @@ def get_auth_token():
 
 
 @app.route('/api/addevent', methods = ['POST'])
-@auth.login_required
+#@auth.login_required
 def add_event():
     eventname= request.json.get('eventname')
     description= request.json.get('description')
@@ -151,28 +151,30 @@ def add_event():
     if (eventname is None or description is None or starttime is None
         or endtime is None or options is None):
         abort(400)    # missing arguments
-    if Event.query.filter_by(eventname=eventname).first() is not None:
-        abort(400)    # existing event
 
-    event = Event(description=description, eventname=eventname, starttime=starttime,
-    endtime=endtime)
+    event = Event(description=description, eventname=eventname, starttime=1, endtime=1)
     db.session.add(event)
     db.session.commit()
 
     #add to has and create options
     for s in options:
-        create_options(event.id, s)
+        create_options(s, event.id)
 
     return jsonify({"status": 200, "response": "event with created with id: "+ str(event.id)})
 
 
 @app.route('/api/deleteevent/<int:id>', methods = ['DELETE'])
-@auth.login_required
+#@auth.login_required
 def remove_event(id):
     event = Event.query.get(id)
     if not event:
         abort(400)
     Event.query.filter_by(id=id).delete()
+    #Remove Links
+    links = Have.query.filter_by(eventid=9)
+    for res in links.all():
+        Options.query.filter_by(id=res.optionid).delete()
+    links.delete()
     db.session.commit()
     return jsonify({"status":200})
 
