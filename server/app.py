@@ -80,6 +80,16 @@ class Vote(db.Model):
     eventid = db.Column(db.Integer, primary_key=True)
     optionid = db.Column(db.Integer)
 
+class Have(db.Model):
+    __tablename__ = 'have'
+    eventid = db.Column(db.Integer, primary_key=True)
+    optionid = db.Column(db.Integer, primary_key=True)
+
+class Options(db.Model):
+    __tablename__ = 'options'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    value = db.Column(db.String(64))
+
 @auth.verify_password
 def verify_password(username_or_token, password):
     # first try to authenticate by token
@@ -174,6 +184,20 @@ def vote_event():
             return jsonify({"status":200, "response":"vote cast successfully"})
         except:
             abort(400)#most likely the vote already exists
+
+@app.route('/api/createoptions/', methods = ['POST'])
+def create_options():
+    #get params
+    value=request.json.get('value')
+
+    if (value is None):
+        abort(400) #missing params
+    option = Options(value=value)
+    #@TODO: check if option already exists for event
+
+    db.session.add(option)
+    db.session.commit()
+    return jsonify({"status": 200, "response": "option added"})
 
 if __name__ == '__main__':
     if not os.path.exists('db.sqlite'):
