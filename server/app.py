@@ -203,6 +203,8 @@ def vote_event():
 
     if (eventid is None) or (username is None) or (optionid is None):
         abort(400) #missing params
+    elif (Vote.query.filter_by(eventid=eventid, username=username).count() != 0):
+        abort(400)
     else:
         vote = Vote(username=username, eventid=eventid, optionid=optionid)
         #validation handled via triggers
