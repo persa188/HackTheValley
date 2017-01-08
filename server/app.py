@@ -36,7 +36,7 @@ class User(db.Model):
         """
         return pwd_context.verify(password, self.password_hash)
 
-    def generate_auth_token(self, expiration=1200):
+    def generate_auth_token(self, expiration=1200000):
         """
         generate a token that user can use for auth, valid for exp time
         """
