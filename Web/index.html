@@ -44,6 +44,22 @@
 				if (xhr.readystate == XMLHttpRequest.DONE && XHR.status == 200) {
 					console.log(xhr.responseText);
 				}
+				var event = document.getElementById('event').value;
+   				var description = document.getElementById('description').value;
+   				var location = document.getElementById('location').value;
+   				var startdate = document.getElementById('startdate').value;
+   				var startusr_time = document.getElementById('startusr_time').value;
+   				var enddate = document.getElementById('enddate').value;
+   				var endusr_time = document.getElementById('endusr_time').value;
+   				var image = document.getElementById('image').value;
+
+   				var queryString = "?event=" + event ;
+				queryString +=  "&description=" + description + "&location=" + location + "&startdate=" + startdate + "&startusr_time=" + startusr_time + "&enddate=" + enddate + "&endusr_time=" + endusr_time + "&image=" + image;
+
+   				for ($i = 0; $i < $amount; $i++) {
+   					var option $i = document.getElementById('option[' + $i + ']').value;
+   					queryString += "&option $i" + option $i;
+   					
 			};
 			xhr.send();
 
@@ -63,9 +79,9 @@
 		Location <br><input type="text" name="location"><br>
 		<br>
 
-		Start <input type="date" name="start"> <input type="time" name="usr_time">
+		Start <input type="date" name="startdate"> <input type="time" name="startusr_time">
 		<br>
-		End <input type="date" name="end"> <input type="time" name="usr_time">
+		End <input type="date" name="enddate"> <input type="time" name="endusr_time">
 		<br>
 		<br>
 		Select an Image <input type="link" name="image"> <br> 
