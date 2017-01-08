@@ -71,6 +71,8 @@ class Event(db.Model):
     __tablename__ = 'events'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     eventname = db.Column(db.String(64), index=True)
+    startime= db.Column(db.Integer)
+    endtime = db.Column(db.Integer)
     description = db.Column(db.String(64))
 
 #Voting Class
@@ -142,15 +144,25 @@ def get_auth_token():
 def add_event():
     eventname= request.json.get('eventname')
     description= request.json.get('description')
+    starttime=request.json.get("starttime")
+    endtime=request.json.get("endtime")
+    options=request.json.get("options")
 
-    if eventname is None or description is None:
+    if (eventname is None or description is None or starttime is None
+        or endtime is None or options is None):
         abort(400)    # missing arguments
     if Event.query.filter_by(eventname=eventname).first() is not None:
         abort(400)    # existing event
 
-    event = Event(description=description, eventname=eventname)
+    event = Event(description=description, eventname=eventname, starttime=starttime,
+    endtime=endtime)
     db.session.add(event)
     db.session.commit()
+
+    #add to has and create options
+    for s in options:
+        create_options(event.id, s)
+
     return jsonify({"status": 200, "response": "event with created with id: "+ str(event.id)})
 
 
@@ -184,7 +196,6 @@ def vote_event():
             return jsonify({"status":200, "response":"vote cast successfully"})
         except:
             abort(400)#most likely the vote already exists
-
 
 def create_options(value, eventid):
     #missing params
