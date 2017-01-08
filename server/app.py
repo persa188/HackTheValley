@@ -265,14 +265,14 @@ def get_metadata():
 
 @app.route('/api/checkifvoted', methods = ['GET'])
 def checkifvoted():
-    userid = request.args['userid']
+    username = request.args['username']
     eventid = request.args['eventid']
 
-    if userid is None or eventid is None:
+    if username is None or eventid is None:
         abort(400)
 
     try:
-        vote = Vote.query.filter_by(username=userid, eventid=eventid).first()
+        vote = Vote.query.filter_by(username=username, eventid=eventid).first()
         return jsonify(status=200, optionid=vote.optionid, resp="did vote")
     except:
         return jsonify(status=200, optionid=-1, resp="did not vote")
