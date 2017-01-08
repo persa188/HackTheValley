@@ -74,6 +74,7 @@ class Event(db.Model):
     starttime= db.Column(db.Integer)
     endtime = db.Column(db.Integer)
     description = db.Column(db.String(64))
+    photo = db.Column(db.String(64))
 
 #Voting Class
 class Vote(db.Model):
@@ -151,12 +152,13 @@ def add_event():
     starttime=request.json.get("starttime")
     endtime=request.json.get("endtime")
     options=request.json.get("options")
+    phot=request.json.get("photo")
 
     if (eventname is None or description is None or starttime is None
         or endtime is None or options is None):
         abort(400)    # missing arguments
 
-    event = Event(description=description, eventname=eventname, starttime=1, endtime=1)
+    event = Event(description=description, eventname=eventname, starttime=1, endtime=1, photo=photo)
     db.session.add(event)
     db.session.commit()
 
@@ -237,8 +239,9 @@ def get_events():
 
 @app.route('/api/event', methods=['GET'])
 def get_event():
-    events = Event.query.filter_by(id=request.args['id']).first()
-    return jsonify({"status": 200, "event":{"eventid":events.id, "eventname":events.eventname, "description":events.description}})
+    reid= request.args['id']
+    events = Event.query.filter_by(id=reid).first()
+    return jsonify({"status": 200, "event":{"eventid":events.id, "eventname":events.eventname, "description":events.description, "photo":events.photo}})
 
 @app.route('/api/user/setmeta', methods = ['PUT'])
 def set_metadata():
@@ -295,6 +298,17 @@ def get_profile():
     #return info
     return jsonify({"status": 200, userid:{"address":profile.address, "age":profile.eventname, "description":profile.description}})
 
+
+@app.route('/api/user/geteventstat', methods = ['GET'])
+def get_stat():
+    #get user
+    res = {}
+    eventid = request.args['id']
+    options = Have.query.filter_by(eventid=eventid).all()
+    for opt in options:
+        res[opt.id] = Vote.query.filter_by(eventid=eventid).count()
+    #return info
+    return jsonify({"status": 200, "results": res})
 
 
 if __name__ == '__main__':
