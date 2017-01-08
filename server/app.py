@@ -73,6 +73,12 @@ class Event(db.Model):
     eventname = db.Column(db.String(64), index=True)
     description = db.Column(db.String(64))
 
+#Voting Class
+class Vote(db.Model):
+    __tablename__ = 'votes'
+    username = db.Column(db.String(32), primary_key=True)
+    eventid = db.Column(db.Integer, primary_key=True)
+    optionid = db.Column(db.Integer)
 
 @auth.verify_password
 def verify_password(username_or_token, password):
@@ -126,11 +132,48 @@ def get_auth_token():
 def add_event():
     eventname= request.json.get('eventname')
     description= request.json.get('description')
+
+    if eventname is None or description is None:
+        abort(400)    # missing arguments
+    if Event.query.filter_by(eventname=eventname).first() is not None:
+        abort(400)    # existing event
+
     event = Event(description=description, eventname=eventname)
     db.session.add(event)
     db.session.commit()
-    return jsonify({"OK"})
+    return jsonify({"status": 200, "response": "event with created with id: "+ str(event.id)})
 
+
+@app.route('/api/deleteevent/<int:id>', methods = ['DELETE'])
+@auth.login_required
+def remove_event(id):
+    event = Event.query.get(id)
+    if not event:
+        abort(400)
+    Event.query.filter_by(id=id).delete()
+    db.session.commit()
+    return jsonify({"status":200})
+
+
+@app.route('/api/vote/', methods = ['POST'])
+def vote_event():
+    #get params
+    eventid=request.json.get('eventid')
+    username=request.json.get('username')
+    optionid=request.json.get('optionid')
+
+    if (eventid is None) or (username is None) or (optionid is None):
+        abort(400) #missing params
+    else:
+        vote = Vote(username=username, eventid=eventid, optionid=optionid)
+        #validation handled via triggers
+        #cast vote
+        try:
+            db.session.add(vote)
+            db.session.commit()
+            return jsonify({"status":200, "response":"vote cast successfully"})
+        except:
+            abort(400)#most likely the vote already exists
 
 if __name__ == '__main__':
     if not os.path.exists('db.sqlite'):
