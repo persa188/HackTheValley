@@ -36,6 +36,16 @@
 					$container.appendChild($item);
 				}
 			}
+			var xhr = new XMLHttpRequest();
+				method = "GET";
+				url = "https://willcodeformoney.com/";
+			xhr.open(method, url, true);
+			xhr.onreadystatechange = function (){
+				if (xhr.readystate == XMLHttpRequest.DONE && XHR.status == 200) {
+					console.log(xhr.responseText);
+				}
+			};
+			xhr.send();
 
 		</script>
 
@@ -60,8 +70,7 @@
 		<br>
 		Select an Image <input type="link" name="image"> <br> 
 		<br>
-		<br>
-
+		
 			How Many Options? <br><input type="text" onkeyup="BuildFormFields(parseInt(this.value, 10));" />
 			<div id="FormFields" style="margin: 20px 0px;"> </div>
 			<input type="submit" value="Create Event"/>
