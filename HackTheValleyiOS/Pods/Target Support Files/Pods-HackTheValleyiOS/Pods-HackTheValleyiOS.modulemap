@@ -1,6 +1,0 @@
-framework module Pods_HackTheValleyiOS {
-  umbrella header "Pods-HackTheValleyiOS-umbrella.h"
-
-  export *
-  module * { export * }
-}
