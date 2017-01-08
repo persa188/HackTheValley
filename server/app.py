@@ -321,17 +321,32 @@ def checkifvoted():
         return jsonify(status=200, optionid=-1, resp="did not vote")
 
 
-@app.route('/api/user/geteventstat', methods = ['GET'])
+@app.route('/api/geteventstat', methods = ['GET'])
 def get_stat():
     #get user
     res = {}
     eventid = request.args['id']
     options = Have.query.filter_by(eventid=eventid).all()
     for opt in options:
-        res[opt.id] = Vote.query.filter_by(eventid=eventid).count()
+        res[opt.optionid] = Vote.query.filter_by(eventid=eventid, optionid=opt.optionid).count()
     #return info
     return jsonify({"status": 200, "results": res})
 
+
+@app.route('/api/leaderboard/activity', methods = ['GET'])
+def activity_leaderboard():
+    #get user
+    res = {}
+    i = 1
+    board = db.session.query(
+    db.func.count(Vote.username).label('qty'), Vote.username
+    ).group_by(Vote.username
+    ).order_by(db.desc('qty'))
+    for per in board:
+        res[i] = per.username
+        i += 1
+    #return info
+    return jsonify({"status": 200, "board": res})
 
 if __name__ == '__main__':
     if not os.path.exists('db.sqlite'):
