@@ -264,7 +264,7 @@ def get_metadata():
     if (profile is None):
         abort(400)
     #return info
-    return jsonify({"meta": profile.meta})
+    return jsonify({"status": 200, "meta": profile.meta})
 
 
 @app.route('/api/user/editprofile', methods = ['PUT'])
@@ -293,7 +293,7 @@ def get_profile():
     if (profile is None):
         abort(400)
     #return info
-    return jsonify({userid: profile})
+    return jsonify({"status": 200, userid:{"address":profile.address, "age":profile.age, "meta":profile.meta}})
 
 
 
