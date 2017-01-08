@@ -1,33 +1,24 @@
 //
-//  LoginViewController.swift
+//  AccountViewController.swift
 //  HackTheValleyiOS
 //
-//  Created by Brandon Mowat on 2017-01-07.
+//  Created by Brandon Mowat on 2017-01-08.
 //  Copyright © 2017 Brandon Mowat. All rights reserved.
 //
 
 import UIKit
 
-class LoginViewController: UIViewController {
-    
-    
-    
-    @IBOutlet weak var header: UILabel!
-    @IBOutlet weak var usernameField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var submit: UIButton!
+class AccountViewController: UIViewController {
 
-    @IBAction func loginSubmit(_ sender: Any) {
-        if let username = usernameField.text,
-            let password = passwordField.text {
-            User(username: username).login(password: password, completion: { () -> Void in
-                self.present((self.storyboard?.instantiateViewController(withIdentifier: "MainViewController"))!, animated: true, completion: nil)
-            })
-            
-        }
+    @IBAction func Logout(_ sender: Any) {
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: "username")
+        defaults.removeObject(forKey: "token")
+        self.present((self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController"))!, animated: true, completion: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
 
@@ -35,7 +26,6 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
 
     /*

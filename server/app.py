@@ -178,6 +178,15 @@ def remove_event(id):
     return jsonify({"status":200})
 
 
+@app.route('/api/votehistory', methods = ['GET'])
+def get_vote_history():
+    res = {}
+    username = request.args['username']
+    votes = Vote.query.filter_by(username=username).all()
+    for v in votes:
+        res[v.eventid] = v.optionid
+    return jsonify({"results (eventid:voteid)":res})
+
 @app.route('/api/vote/', methods = ['POST'])
 def vote_event():
     #get params
