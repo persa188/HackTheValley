@@ -185,19 +185,20 @@ def vote_event():
         except:
             abort(400)#most likely the vote already exists
 
-@app.route('/api/createoptions/', methods = ['POST'])
-def create_options():
-    #get params
-    value=request.json.get('value')
 
+def create_options(value, eventid):
+    #missing params
     if (value is None):
-        abort(400) #missing params
+        abort(400)
+    #Create new Event
     option = Options(value=value)
-    #@TODO: check if option already exists for event
-
     db.session.add(option)
     db.session.commit()
-    return jsonify({"status": 200, "response": "option added"})
+
+    #Create Link between Event and Option
+    link = Have(optionid=option.id, eventid=eventid)
+    db.session.add(link)
+    db.session.commit()
 
 if __name__ == '__main__':
     if not os.path.exists('db.sqlite'):
