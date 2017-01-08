@@ -1,5 +1,5 @@
 # project-x REST API
-
+TEST USERNAME & PASS = test123:pass
 ###Latest Update
 - lots of changes will update readme soon
 
