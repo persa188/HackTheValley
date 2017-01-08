@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import os
+import json
 from flask import Flask, abort, request, jsonify, g, url_for
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.httpauth import HTTPBasicAuth
@@ -59,13 +60,12 @@ class User(db.Model):
         user = User.query.get(data['id'])
         return user
 
-# class Profile(db.Model):
-#     __tablename__ = 'profile'
-#     id = db.Column(db.Integer, primary_key=True)
-#     eventname = db.Column(db.String(64), index=True)
-#     description = db.Column(db.String(64))
-#     #TODO: lets extend the user
-#     pass
+class Profile(db.Model):
+    __tablename__ = 'profile'
+    userid = db.Column(db.Integer, primary_key=True)
+    address = db.Column(db.String(64))
+    age = db.Column(db.Integer)
+    meta = db.Column(db.String(64))
 
 class Event(db.Model):
     __tablename__ = 'events'
@@ -116,6 +116,10 @@ def new_user():
     user = User(username=username)
     user.hash_password(password)
     db.session.add(user)
+    db.session.commit()
+    #create a matching profile
+    profile = Profile(userid=user.id)
+    db.session.add(profile)
     db.session.commit()
     return (jsonify({'username': user.username}), 201,
             {'Location': url_for('get_user', id=user.id, _external=True)})
@@ -181,12 +185,12 @@ def remove_event(id):
 
 @app.route('/api/votehistory', methods = ['GET'])
 def get_vote_history():
-    res = {}
+    res = []
     username = request.args['username']
     votes = Vote.query.filter_by(username=username).all()
     for v in votes:
-        res[v.eventid] = v.optionid
-    return jsonify({"results (eventid:voteid)":res})
+        res.append({"eventid":v.eventid, "optionid":v.optionid})
+    return jsonify({"results":res})
 
 @app.route('/api/vote/', methods = ['POST'])
 def vote_event():
@@ -221,6 +225,77 @@ def create_options(value, eventid):
     link = Have(optionid=option.id, eventid=eventid)
     db.session.add(link)
     db.session.commit()
+
+
+@app.route('/api/events', methods=['GET'])
+def get_events():
+    res = []
+    events = Event.query.all()
+    for e in events:
+        res.append({"eventid": e.id, "eventname":e.eventname, "description": e.description})
+    return jsonify({"events": res})
+
+@app.route('/api/event', methods=['GET'])
+def get_event():
+    events = Event.query.filter_by(id=request.args['id']).first()
+    return jsonify({"status": 200, "event":{"eventid":events.id, "eventname":events.eventname, "description":events.description}})
+
+@app.route('/api/user/setmeta', methods = ['PUT'])
+def set_metadata():
+    #get user
+    userid = request.json.get('userid')
+    profile = Profile.query.get(userid)
+    if (profile is None):
+        abort(400)
+    #get params
+    meta = str(request.json.get('meta'))
+    #update info
+    profile.meta = meta
+    #db.session.update(user)
+    db.session.commit()
+    return jsonify({"status": 200, "response": "Metadata updated successfully"})
+
+
+@app.route('/api/user/getmeta', methods = ['GET'])
+def get_metadata():
+    #get user
+    userid = request.args['id']
+    profile = Profile.query.filter_by(userid=userid).first()
+    if (profile is None):
+        abort(400)
+    #return info
+    return jsonify({"status": 200, "meta": profile.meta})
+
+
+@app.route('/api/user/editprofile', methods = ['PUT'])
+def edit_profile():
+    #get user
+    userid = request.json.get('userid')
+    profile = Profile.query.get(userid)
+    if (profile is None):
+        abort(400)
+    #get params
+    meta = str(request.json.get('meta'))
+    #update info
+    profile.address = request.json.get('address', profile.address)
+    profile.age = request.json.get('age', profile.age)
+    profile.meta = str(request.json.get('meta', profile.meta))
+    #db.session.update(user)
+    db.session.commit()
+    return jsonify({"status": 200, "response": "Profile updated successfully"})
+
+
+@app.route('/api/user/getprofile', methods = ['GET'])
+def get_profile():
+    #get user
+    userid = request.args['id']
+    profile = Profile.query.filter_by(userid=userid).first()
+    if (profile is None):
+        abort(400)
+    #return info
+    return jsonify({"status": 200, userid:{"address":profile.address, "age":profile.eventname, "description":profile.description}})
+
+
 
 if __name__ == '__main__':
     if not os.path.exists('db.sqlite'):
