@@ -1,5 +1,5 @@
 //
-//  Event.swift
+//  Vote.swift
 //  HackTheValleyiOS
 //
 //  Created by Brandon Mowat on 2017-01-08.
@@ -9,12 +9,13 @@
 import Foundation
 import Alamofire
 
-class Event {
-
+class Vote {
+    
     init() {}
     
-    func getEvents(completion: @escaping (_ json: NSDictionary) -> Void) {
-        Alamofire.request("http://server.sanic.ca:8989/api/events")
+    func vote(username: String, eventid: String, option: Int, completion: @escaping (_ json: NSDictionary) -> Void) {
+        let parameters: Parameters = ["eventid": eventid, "username": username, "optionid": option]
+        Alamofire.request("http://server.sanic.ca:8989/api/vote/", method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { response in
                 print(response)
                 //to get status code
@@ -35,8 +36,9 @@ class Event {
         }
     }
     
-    func getNumOfEvents(completion: @escaping (_ num: Int) -> Void) {
-        Alamofire.request("http://server.sanic.ca:8989/api/events")
+    func getVoteOptions(eventid: String, completion: @escaping (Array<Any>) -> Void) {
+        let parameters: Parameters = ["id": eventid]
+        Alamofire.request("http://server.sanic.ca:8989/api/event", parameters: parameters)
             .responseJSON { response in
                 print(response)
                 //to get status code
@@ -51,10 +53,13 @@ class Event {
                 //to get JSON return value
                 if let result = response.result.value {
                     let JSON = result as! NSDictionary
-                    completion((JSON["events"] as! Array<Any>).count)
+                    print((JSON["event"] as! NSDictionary)["options"]!)
+                    completion([(JSON["event"] as! NSDictionary)["options"]!])
                 }
                 
         }
+        
+        
     }
-
+    
 }

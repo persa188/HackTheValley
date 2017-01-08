@@ -9,10 +9,18 @@
 import UIKit
 
 class EventCell: UITableViewCell {
-
+    
+    @IBOutlet weak var eventImage: UIImageView!
+    @IBOutlet weak var eventTitle: UILabel!
+    @IBOutlet weak var eventDescription: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.eventDescription.sizeToFit()
+        self.eventImage.layer.cornerRadius = 5
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
