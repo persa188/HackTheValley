@@ -152,6 +152,7 @@ def add_event():
         or endtime is None or options is None):
         abort(400)    # missing arguments
 
+    #assuming time is in form YYYY/MM/dd hh:mm
     event = Event(description=description, eventname=eventname, starttime=1, endtime=1)
     db.session.add(event)
     db.session.commit()
@@ -228,7 +229,7 @@ def get_events():
     res = []
     events = Event.query.all()
     for e in events:
-        res.append({"eventid": e.id, "eventname":e.eventname, "description": e.description})
+        res.append({"eventid": str(e.id), "eventname": str(e.eventname), "description": str(e.description)})
     return jsonify({"events": res})
 
 @app.route('/api/event', methods=['GET'])
@@ -262,7 +263,19 @@ def get_metadata():
     #return info
     return jsonify({"meta": user.meta})
 
+@app.route('/api/checkifvoted', methods = ['GET'])
+def checkifvoted():
+    userid = request.args['userid']
+    eventid = request.args['eventid']
 
+    if userid is None or eventid is None:
+        abort(400)
+
+    try:
+        vote = Vote.query.filter_by(username=userid, eventid=eventid).first()
+        return jsonify(status=200, optionid=vote.optionid, resp="did vote")
+    except:
+        return jsonify(status=200, optionid=-1, resp="did not vote")
 
 if __name__ == '__main__':
     if not os.path.exists('db.sqlite'):
