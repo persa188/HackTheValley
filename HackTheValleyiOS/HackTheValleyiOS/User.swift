@@ -17,10 +17,10 @@ class User {
         self.username = username
     }
     
-    func login(passord: String) {
+    func login(password: String, completion: @escaping () -> Void) {
         let defaults = UserDefaults.standard
         
-        Alamofire.request("http://127.0.0.1:5000/api/token")
+        Alamofire.request("http://server.sanic.ca:8989/api/token")
             .authenticate(user: self.username, password: password)
             .responseJSON { response in
                 print(response)
@@ -39,6 +39,7 @@ class User {
                     if let token = JSON["token"] {
                         defaults.set(token, forKey: "token")
                         defaults.set("test123", forKey: "username")
+                        completion()
                     }
                 }
                 

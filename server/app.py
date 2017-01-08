@@ -60,13 +60,12 @@ class User(db.Model):
         user = User.query.get(data['id'])
         return user
 
-# class Profile(db.Model):
-#     __tablename__ = 'profile'
-#     id = db.Column(db.Integer, primary_key=True)
-#     eventname = db.Column(db.String(64), index=True)
-#     description = db.Column(db.String(64))
-#     #TODO: lets extend the user
-#     pass
+class Profile(db.Model):
+    __tablename__ = 'profile'
+    userid = db.Column(db.Integer, primary_key=True)
+    address = db.Column(db.String(64))
+    age = db.Column(db.Integer)
+    meta = db.Column(db.String(64))
 
 class Event(db.Model):
     __tablename__ = 'events'
@@ -223,6 +222,7 @@ def create_options(value, eventid):
     db.session.add(link)
     db.session.commit()
 
+
 @app.route('/api/events', methods=['GET'])
 def get_events():
     res = []
@@ -235,6 +235,34 @@ def get_events():
 def get_event():
     events = Event.query.filter_by(id=request.args['id']).first()
     return jsonify({"status": 200, "event":{"eventid":events.id, "eventname":events.eventname, "description":events.description}})
+
+@app.route('/api/user/setmeta', methods = ['PUT'])
+def set_metadata():
+    #get user
+    userid = request.json.get('userid')
+    user = Profile.query.get(userid)
+    if (user is None):
+        abort(400)
+    #get params
+    meta = str(request.json.get('meta'))
+    #update info
+    user.meta = meta
+    #db.session.update(user)
+    db.session.commit()
+    return jsonify({"status": 200, "response": "Metadata updated successfully"})
+
+
+@app.route('/api/user/getmeta', methods = ['GET'])
+def get_metadata():
+    #get user
+    userid = request.args['id']
+    user = Profile.query.filter_by(userid=userid).first()
+    if (user is None):
+        abort(400)
+    #return info
+    return jsonify({"meta": user.meta})
+
+
 
 if __name__ == '__main__':
     if not os.path.exists('db.sqlite'):
