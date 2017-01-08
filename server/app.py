@@ -234,14 +234,22 @@ def get_events():
     res = []
     events = Event.query.all()
     for e in events:
-        res.append({"eventid": e.id, "eventname": e.eventname, "description": e.description})
+        res.append({"eventid": e.id, "eventname": e.eventname, "description": e.description, "options": get_options_h(e.id)})
     return jsonify({"events": res})
+
+def get_options_h(eid):
+    '''helper fn'''
+    res = []
+    have = Have.query.filter_by(eventid=eid).all()
+    for s in have:
+        res.append({"optionid":s.optionid,"value":Options.query.get(s.optionid).value})
+    return res
 
 @app.route('/api/event', methods=['GET'])
 def get_event():
     reid= request.args['id']
     events = Event.query.filter_by(id=reid).first()
-    return jsonify({"status": 200, "event":{"eventid":events.id, "eventname":events.eventname, "description":events.description, "photo":events.photo}})
+    return jsonify({"status": 200, "event":{"eventid":events.id, "eventname":events.eventname, "description":events.description, "photo":events.photo, "options": get_options_h(events.id)}})
 
 @app.route('/api/user/setmeta', methods = ['PUT'])
 def set_metadata():
