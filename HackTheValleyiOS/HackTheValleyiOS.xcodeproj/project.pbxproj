@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		14C79BB919B408744DEE0C88 /* Pods_HackTheValleyiOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0E14A185A1E41D67DDA1E1F /* Pods_HackTheValleyiOSTests.framework */; };
 		42560B792C11CA27C5DC80F1 /* Pods_HackTheValleyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71B7ECE346FB90E8F736F445 /* Pods_HackTheValleyiOS.framework */; };
+		CA0531DE1E21AE89000ED1A1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0531DD1E21AE89000ED1A1 /* LoginViewController.swift */; };
 		CA3B1EA91E218BDC000DA172 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3B1EA81E218BDC000DA172 /* AppDelegate.swift */; };
 		CA3B1EAB1E218BDC000DA172 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3B1EAA1E218BDC000DA172 /* FirstViewController.swift */; };
 		CA3B1EAD1E218BDC000DA172 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3B1EAC1E218BDC000DA172 /* SecondViewController.swift */; };
@@ -17,6 +18,8 @@
 		CA3B1EB51E218BDC000DA172 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA3B1EB31E218BDC000DA172 /* LaunchScreen.storyboard */; };
 		CA3B1EC01E218BDC000DA172 /* HackTheValleyiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3B1EBF1E218BDC000DA172 /* HackTheValleyiOSTests.swift */; };
 		CA3B1ECB1E218D72000DA172 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3B1ECA1E218D72000DA172 /* DetailViewController.swift */; };
+		CA3B1ECD1E219620000DA172 /* TrendingEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3B1ECC1E21961F000DA172 /* TrendingEventCell.swift */; };
+		CA3B1ED01E219683000DA172 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3B1ECF1E219683000DA172 /* EventCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,7 @@
 		47E820C8C7DAA3ED35BD1F5B /* Pods-HackTheValleyiOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackTheValleyiOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackTheValleyiOSTests/Pods-HackTheValleyiOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		71B7ECE346FB90E8F736F445 /* Pods_HackTheValleyiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackTheValleyiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		781190346F5F87F30EBBC526 /* Pods-HackTheValleyiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackTheValleyiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackTheValleyiOS/Pods-HackTheValleyiOS.release.xcconfig"; sourceTree = "<group>"; };
+		CA0531DD1E21AE89000ED1A1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CA3B1EA51E218BDC000DA172 /* HackTheValleyiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackTheValleyiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA3B1EA81E218BDC000DA172 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA3B1EAA1E218BDC000DA172 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +50,8 @@
 		CA3B1EBF1E218BDC000DA172 /* HackTheValleyiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackTheValleyiOSTests.swift; sourceTree = "<group>"; };
 		CA3B1EC11E218BDC000DA172 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA3B1ECA1E218D72000DA172 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		CA3B1ECC1E21961F000DA172 /* TrendingEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingEventCell.swift; sourceTree = "<group>"; };
+		CA3B1ECF1E219683000DA172 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		DB2935D0CA0297A1145F3E04 /* Pods-HackTheValleyiOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackTheValleyiOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackTheValleyiOSTests/Pods-HackTheValleyiOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		E0E14A185A1E41D67DDA1E1F /* Pods_HackTheValleyiOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackTheValleyiOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -103,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				CA3B1EA81E218BDC000DA172 /* AppDelegate.swift */,
+				CA3B1ECE1E219629000DA172 /* CustomCells */,
 				CA3B1EAA1E218BDC000DA172 /* FirstViewController.swift */,
 				CA3B1EAC1E218BDC000DA172 /* SecondViewController.swift */,
 				CA3B1ECA1E218D72000DA172 /* DetailViewController.swift */,
@@ -110,6 +117,7 @@
 				CA3B1EB11E218BDC000DA172 /* Assets.xcassets */,
 				CA3B1EB31E218BDC000DA172 /* LaunchScreen.storyboard */,
 				CA3B1EB61E218BDC000DA172 /* Info.plist */,
+				CA0531DD1E21AE89000ED1A1 /* LoginViewController.swift */,
 			);
 			path = HackTheValleyiOS;
 			sourceTree = "<group>";
@@ -121,6 +129,15 @@
 				CA3B1EC11E218BDC000DA172 /* Info.plist */,
 			);
 			path = HackTheValleyiOSTests;
+			sourceTree = "<group>";
+		};
+		CA3B1ECE1E219629000DA172 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				CA3B1ECC1E21961F000DA172 /* TrendingEventCell.swift */,
+				CA3B1ECF1E219683000DA172 /* EventCell.swift */,
+			);
+			name = CustomCells;
 			sourceTree = "<group>";
 		};
 		FA28910E8C0DD40286B53EEE /* Pods */ = {
@@ -338,9 +355,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA0531DE1E21AE89000ED1A1 /* LoginViewController.swift in Sources */,
 				CA3B1EAD1E218BDC000DA172 /* SecondViewController.swift in Sources */,
 				CA3B1EA91E218BDC000DA172 /* AppDelegate.swift in Sources */,
 				CA3B1EAB1E218BDC000DA172 /* FirstViewController.swift in Sources */,
+				CA3B1ECD1E219620000DA172 /* TrendingEventCell.swift in Sources */,
+				CA3B1ED01E219683000DA172 /* EventCell.swift in Sources */,
 				CA3B1ECB1E218D72000DA172 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,6 +573,7 @@
 				CA3B1EC61E218BDC000DA172 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CA3B1EC71E218BDC000DA172 /* Build configuration list for PBXNativeTarget "HackTheValleyiOSTests" */ = {
 			isa = XCConfigurationList;
@@ -561,6 +582,7 @@
 				CA3B1EC91E218BDC000DA172 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
