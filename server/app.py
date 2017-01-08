@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import os
+import json
 from flask import Flask, abort, request, jsonify, g, url_for
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.httpauth import HTTPBasicAuth
@@ -184,12 +185,12 @@ def remove_event(id):
 
 @app.route('/api/votehistory', methods = ['GET'])
 def get_vote_history():
-    res = {}
+    res = []
     username = request.args['username']
     votes = Vote.query.filter_by(username=username).all()
     for v in votes:
-        res[v.eventid] = v.optionid
-    return jsonify({"results (eventid:voteid)":res})
+        res.append({"eventid":v.eventid, "optionid":v.optionid})
+    return jsonify({"results":res})
 
 @app.route('/api/vote/', methods = ['POST'])
 def vote_event():
@@ -224,6 +225,20 @@ def create_options(value, eventid):
     link = Have(optionid=option.id, eventid=eventid)
     db.session.add(link)
     db.session.commit()
+
+
+@app.route('/api/events', methods=['GET'])
+def get_events():
+    res = []
+    events = Event.query.all()
+    for e in events:
+        res.append({"eventid": e.id, "eventname":e.eventname, "description": e.description})
+    return jsonify({"events": res})
+
+@app.route('/api/event', methods=['GET'])
+def get_event():
+    events = Event.query.filter_by(id=request.args['id']).first()
+    return jsonify({"status": 200, "event":{"eventid":events.id, "eventname":events.eventname, "description":events.description}})
 
 @app.route('/api/user/setmeta', methods = ['PUT'])
 def set_metadata():
@@ -279,6 +294,7 @@ def get_profile():
         abort(400)
     #return info
     return jsonify({userid: profile})
+
 
 
 if __name__ == '__main__':
