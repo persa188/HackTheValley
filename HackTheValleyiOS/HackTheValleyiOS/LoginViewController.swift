@@ -9,10 +9,23 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+    
+    
+    
+    @IBOutlet weak var header: UILabel!
+    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var submit: UIButton!
 
+    @IBAction func loginSubmit(_ sender: Any) {
+        if let username = usernameField.text,
+            let password = passwordField.text {
+            User(username: username).login(passord: password)
+            
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -20,6 +33,7 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
 
     /*
