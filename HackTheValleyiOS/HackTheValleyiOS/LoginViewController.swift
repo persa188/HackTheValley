@@ -1,5 +1,5 @@
 //
-//  DetailViewController.swift
+//  LoginViewController.swift
 //  HackTheValleyiOS
 //
 //  Created by Brandon Mowat on 2017-01-07.
@@ -8,26 +8,12 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
-    
-    //
-    // Data dict goes here
-    //
-    @IBOutlet weak var text: UILabel!
-    
-    var label: String?
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        self.text.text = label
-
-    }
+class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-
     }
 
     override func didReceiveMemoryWarning() {
