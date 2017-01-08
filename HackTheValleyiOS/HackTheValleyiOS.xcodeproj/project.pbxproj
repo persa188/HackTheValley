@@ -10,6 +10,7 @@
 		14C79BB919B408744DEE0C88 /* Pods_HackTheValleyiOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0E14A185A1E41D67DDA1E1F /* Pods_HackTheValleyiOSTests.framework */; };
 		42560B792C11CA27C5DC80F1 /* Pods_HackTheValleyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71B7ECE346FB90E8F736F445 /* Pods_HackTheValleyiOS.framework */; };
 		CA0531DE1E21AE89000ED1A1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0531DD1E21AE89000ED1A1 /* LoginViewController.swift */; };
+		CA0531E11E21D820000ED1A1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0531E01E21D820000ED1A1 /* User.swift */; };
 		CA3B1EA91E218BDC000DA172 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3B1EA81E218BDC000DA172 /* AppDelegate.swift */; };
 		CA3B1EAB1E218BDC000DA172 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3B1EAA1E218BDC000DA172 /* FirstViewController.swift */; };
 		CA3B1EAD1E218BDC000DA172 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3B1EAC1E218BDC000DA172 /* SecondViewController.swift */; };
@@ -38,6 +39,7 @@
 		71B7ECE346FB90E8F736F445 /* Pods_HackTheValleyiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackTheValleyiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		781190346F5F87F30EBBC526 /* Pods-HackTheValleyiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackTheValleyiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackTheValleyiOS/Pods-HackTheValleyiOS.release.xcconfig"; sourceTree = "<group>"; };
 		CA0531DD1E21AE89000ED1A1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CA0531E01E21D820000ED1A1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CA3B1EA51E218BDC000DA172 /* HackTheValleyiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackTheValleyiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA3B1EA81E218BDC000DA172 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA3B1EAA1E218BDC000DA172 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +87,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CA0531DF1E21D730000ED1A1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CA0531E01E21D820000ED1A1 /* User.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		CA3B1E9C1E218BDC000DA172 = {
 			isa = PBXGroup;
 			children = (
@@ -108,8 +118,9 @@
 		CA3B1EA71E218BDC000DA172 /* HackTheValleyiOS */ = {
 			isa = PBXGroup;
 			children = (
-				CA3B1EA81E218BDC000DA172 /* AppDelegate.swift */,
+				CA0531DF1E21D730000ED1A1 /* Models */,
 				CA3B1ECE1E219629000DA172 /* CustomCells */,
+				CA0531DD1E21AE89000ED1A1 /* LoginViewController.swift */,
 				CA3B1EAA1E218BDC000DA172 /* FirstViewController.swift */,
 				CA3B1EAC1E218BDC000DA172 /* SecondViewController.swift */,
 				CA3B1ECA1E218D72000DA172 /* DetailViewController.swift */,
@@ -117,7 +128,7 @@
 				CA3B1EB11E218BDC000DA172 /* Assets.xcassets */,
 				CA3B1EB31E218BDC000DA172 /* LaunchScreen.storyboard */,
 				CA3B1EB61E218BDC000DA172 /* Info.plist */,
-				CA0531DD1E21AE89000ED1A1 /* LoginViewController.swift */,
+				CA3B1EA81E218BDC000DA172 /* AppDelegate.swift */,
 			);
 			path = HackTheValleyiOS;
 			sourceTree = "<group>";
@@ -359,6 +370,7 @@
 				CA3B1EAD1E218BDC000DA172 /* SecondViewController.swift in Sources */,
 				CA3B1EA91E218BDC000DA172 /* AppDelegate.swift in Sources */,
 				CA3B1EAB1E218BDC000DA172 /* FirstViewController.swift in Sources */,
+				CA0531E11E21D820000ED1A1 /* User.swift in Sources */,
 				CA3B1ECD1E219620000DA172 /* TrendingEventCell.swift in Sources */,
 				CA3B1ED01E219683000DA172 /* EventCell.swift in Sources */,
 				CA3B1ECB1E218D72000DA172 /* DetailViewController.swift in Sources */,
