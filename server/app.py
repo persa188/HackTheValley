@@ -232,7 +232,7 @@ def get_events():
     res = []
     events = Event.query.all()
     for e in events:
-        res.append({"eventid": e.id, "eventname":e.eventname, "description": e.description})
+        res.append({"eventid": str(e.id), "eventname": str(e.eventname), "description": str(e.description)})
     return jsonify({"events": res})
 
 @app.route('/api/event', methods=['GET'])
@@ -294,7 +294,6 @@ def get_profile():
         abort(400)
     #return info
     return jsonify({"status": 200, userid:{"address":profile.address, "age":profile.age, "meta":profile.meta}})
-
 
 
 if __name__ == '__main__':
