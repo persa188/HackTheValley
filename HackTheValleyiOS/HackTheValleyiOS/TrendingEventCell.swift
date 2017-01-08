@@ -9,10 +9,16 @@
 import UIKit
 
 class TrendingEventCell: UITableViewCell {
+    
+    @IBOutlet weak var eventTitle: UILabel!
+    @IBOutlet weak var eventDescription: UILabel!
+    @IBOutlet weak var eventImage: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        self.eventDescription.sizeToFit()
         
     }
 
